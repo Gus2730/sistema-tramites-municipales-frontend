@@ -1,0 +1,70 @@
+.tramites-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.filter-card {
+  transition: box-shadow 0.2s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.tramite-row {
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    background-color: #f8fafc;
+    transform: translateY(-1px);
+  }
+}
+
+.action-button {
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.pagination-button {
+  transition: all 0.2s ease-in-out;
+  
+  &:hover:not(:disabled) {
+    background-color: #e5e7eb;
+  }
+  
+  &.active {
+    background-color: #3b82f6;
+    color: white;
+  }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
