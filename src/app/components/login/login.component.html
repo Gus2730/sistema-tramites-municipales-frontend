@@ -10,7 +10,7 @@
       <h2 class="text-3xl font-extrabold text-white mb-2">
         Trámites Municipales
       </h2>
-      <p class="text-indigo-200">
+      <p class="text-gray-300">
         Ingrese sus credenciales para acceder al sistema
       </p>
     </div>
@@ -30,7 +30,7 @@
 
         <!-- Cedula Field -->
         <div>
-          <label for="cedula" class="block text-sm font-medium text-gray-200 mb-2">
+          <label for="cedula" class="block text-sm font-medium text-black mb-2">
             Cédula de Identidad
           </label>
           <div class="relative">
@@ -38,7 +38,7 @@
               id="cedula"
               type="text"
               formControlName="cedula"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               [class.border-red-500]="f['cedula'].invalid && f['cedula'].touched"
               placeholder="Ingrese su cédula"
               maxlength="10"
@@ -56,7 +56,7 @@
 
         <!-- Password Field -->
         <div>
-          <label for="contrasena" class="block text-sm font-medium text-gray-200 mb-2">
+          <label for="contrasena" class="block text-sm font-medium text-black mb-2">
             Contraseña
           </label>
           <div class="relative">
@@ -64,7 +64,7 @@
               id="contrasena"
               [type]="showPassword ? 'text' : 'password'"
               formControlName="contrasena"
-              class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               [class.border-red-500]="f['contrasena'].invalid && f['contrasena'].touched"
               placeholder="Ingrese su contraseña"
             >
@@ -89,7 +89,7 @@
           <button
             type="submit"
             [disabled]="loading"
-            class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg *ngIf="loading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

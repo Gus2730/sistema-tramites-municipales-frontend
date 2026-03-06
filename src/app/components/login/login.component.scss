@@ -1,6 +1,6 @@
 .login-container {
-  /* nuevo esquema: verde/teal suave */
-  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  /* esquema corporativo: azul marino a gris */
+  background: linear-gradient(135deg, #1e3a8a 0%, #374151 100%);
   min-height: 100vh;
 }
 
@@ -16,17 +16,17 @@
   
   &:focus {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
   }
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   transition: all 0.35s ease;
 
   &:hover:not(:disabled) {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
   }
 }
 
