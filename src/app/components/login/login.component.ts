@@ -1,8 +1,8 @@
-import { Component, type OnInit } from "@angular/core"
-import { type FormBuilder, type FormGroup, Validators } from "@angular/forms"
-import type { Router, ActivatedRoute } from "@angular/router"
-import type { AuthService } from "../../services/auth.service"
-import type { LoginRequest } from "../../models/user.model"
+import { Component,  OnInit } from "@angular/core"
+import {  FormBuilder,  FormGroup, Validators } from "@angular/forms"
+import  { Router, ActivatedRoute } from "@angular/router"
+import  { AuthService } from "../../services/auth.service"
+import  { LoginRequest } from "../../models/user.model"
 
 @Component({
   selector: "app-login",
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   loading = false
   error = ""
   returnUrl = ""
+  currentYear = new Date().getFullYear()
+  showPassword = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,6 +67,10 @@ export class LoginComponent implements OnInit {
         this.error = error.error?.message || "Error al iniciar sesión. Intente nuevamente."
       },
     })
+  }
+
+  toggleShowPassword(): void {
+    this.showPassword = !this.showPassword
   }
 
   private markFormGroupTouched(): void {

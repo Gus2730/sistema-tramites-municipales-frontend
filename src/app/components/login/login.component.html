@@ -1,22 +1,22 @@
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+<div class="login-container min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
     <!-- Header -->
     <div class="text-center">
-      <div class="mx-auto h-16 w-16 bg-indigo-600 rounded-full flex items-center justify-center mb-4">
+     <!-- <div class="mx-auto h-16 w-16 bg-indigo-600 rounded-full flex items-center justify-center mb-4">
         <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
         </svg>
-      </div>
-      <h2 class="text-3xl font-bold text-gray-900 mb-2">
-        Sistema de Trámites Municipales
+      </div> -->
+      <h2 class="text-3xl font-extrabold text-white mb-2">
+        Trámites Municipales
       </h2>
-      <p class="text-gray-600">
+      <p class="text-indigo-200">
         Ingrese sus credenciales para acceder al sistema
       </p>
     </div>
 
     <!-- Login Form -->
-    <div class="bg-white rounded-xl shadow-lg p-8">
+    <div class="login-card rounded-xl shadow-lg p-8">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
         <!-- Error Message -->
         <div *ngIf="error" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
@@ -30,7 +30,7 @@
 
         <!-- Cedula Field -->
         <div>
-          <label for="cedula" class="block text-sm font-medium text-gray-700 mb-2">
+          <label for="cedula" class="block text-sm font-medium text-gray-200 mb-2">
             Cédula de Identidad
           </label>
           <div class="relative">
@@ -56,23 +56,28 @@
 
         <!-- Password Field -->
         <div>
-          <label for="contrasena" class="block text-sm font-medium text-gray-700 mb-2">
+          <label for="contrasena" class="block text-sm font-medium text-gray-200 mb-2">
             Contraseña
           </label>
           <div class="relative">
             <input
               id="contrasena"
-              type="password"
+              [type]="showPassword ? 'text' : 'password'"
               formControlName="contrasena"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
               [class.border-red-500]="f['contrasena'].invalid && f['contrasena'].touched"
               placeholder="Ingrese su contraseña"
             >
-            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            <button type="button" (click)="toggleShowPassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 focus:outline-none">
+              <svg *ngIf="!showPassword" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
-            </div>
+              <svg *ngIf="showPassword" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.956 9.956 0 012.223-3.503m1.666-1.666A9.956 9.956 0 0112 5c4.477 0 8.268 2.943 9.542 7a10.05 10.05 0 01-.167 1.032m-4.42-4.42A3 3 0 1011.578 11.58" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
+              </svg>
+            </button>
           </div>
           <div *ngIf="getFieldError('contrasena')" class="mt-1 text-sm text-red-600">
             {{ getFieldError('contrasena') }}
@@ -84,7 +89,7 @@
           <button
             type="submit"
             [disabled]="loading"
-            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg *ngIf="loading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -98,10 +103,10 @@
       <!-- Footer -->
       <div class="mt-6 text-center">
         <p class="text-xs text-gray-500">
-          Sistema de Trámites Municipales v1.0
+          Sistema de Trámites Municipales v1.1
         </p>
         <p class="text-xs text-gray-500 mt-1">
-          © 2024 Municipio. Todos los derechos reservados.
+          © {{ currentYear }} Municipio. Todos los derechos reservados.
         </p>
       </div>
     </div>

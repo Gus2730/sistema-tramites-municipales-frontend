@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core"
-import { type HttpClient, HttpParams } from "@angular/common/http"
-import type { Observable } from "rxjs"
+import {  HttpClient, HttpParams } from "@angular/common/http"
+import  { Observable } from "rxjs"
 import { environment } from "../../environments/environment"
-import type { Tramite, CreateTramite, UpdateTramite, TipoTramite, EstadoTramite } from "../models/tramite.model"
-import type { ApiResponse } from "../models/user.model"
+import  { Tramite, CreateTramite, UpdateTramite, TipoTramite, EstadoTramite } from "../models/tramite.model"
+import  { ApiResponse } from "../models/user.model"
 
 @Injectable({
   providedIn: "root",

@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core"
-import type { HttpClient } from "@angular/common/http"
-import { BehaviorSubject, type Observable } from "rxjs"
+import  { HttpClient } from "@angular/common/http"
+import { BehaviorSubject,  Observable } from "rxjs"
 import { tap } from "rxjs/operators"
-import type { Router } from "@angular/router"
-import type { LoginRequest, LoginResponse, User, ApiResponse } from "../models/user.model"
+import  { Router } from "@angular/router"
+import  { LoginRequest, LoginResponse, User, ApiResponse } from "../models/user.model"
 import { environment } from "../../environments/environment"
 
 @Injectable({

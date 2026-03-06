@@ -1,6 +1,6 @@
-import { Component, type OnInit } from "@angular/core"
-import type { AuthService } from "../../services/auth.service"
-import type { User } from "../../models/user.model"
+import { Component,  OnInit } from "@angular/core"
+import  { AuthService } from "../../services/auth.service"
+import  { User } from "../../models/user.model"
 
 @Component({
   selector: "app-dashboard",

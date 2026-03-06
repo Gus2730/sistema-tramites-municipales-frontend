@@ -1,8 +1,8 @@
-import { Component, type OnInit } from "@angular/core"
-import type { TramiteService } from "../../services/tramite.service"
-import type { AuthService } from "../../services/auth.service"
-import type { Tramite, EstadoTramite } from "../../models/tramite.model"
-import type { Department } from "../../models/user.model"
+import { Component,  OnInit } from "@angular/core"
+import  { TramiteService } from "../../services/tramite.service"
+import  { AuthService } from "../../services/auth.service"
+import  { Tramite, EstadoTramite } from "../../models/tramite.model"
+import  { Department } from "../../models/user.model"
 
 @Component({
   selector: "app-tramites-list",

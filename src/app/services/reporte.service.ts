@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core"
-import { type HttpClient, HttpParams } from "@angular/common/http"
-import type { Observable } from "rxjs"
+import {  HttpClient, HttpParams } from "@angular/common/http"
+import  { Observable } from "rxjs"
 import { environment } from "../../environments/environment"
-import type { ApiResponse } from "../models/user.model"
+import  { ApiResponse } from "../models/user.model"
 
 @Injectable({
   providedIn: "root",
