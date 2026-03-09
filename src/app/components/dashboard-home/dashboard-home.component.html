@@ -1,0 +1,107 @@
+<!-- Welcome Message -->
+<div class="mb-8">
+  <h2 class="text-3xl font-bold text-gray-900">¡Bienvenido, {{ currentUser?.nombreCompleto }}!</h2>
+  <p class="mt-2 text-gray-600">Aquí tienes un resumen de la actividad del sistema</p>
+</div>
+
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  <div class="bg-white rounded-lg shadow p-6">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <div class="h-8 w-8 bg-blue-500 rounded-md flex items-center justify-center">
+          <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-medium text-gray-500">Total Trámites</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ stats.tramitesTotal }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-6">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <div class="h-8 w-8 bg-yellow-500 rounded-md flex items-center justify-center">
+          <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-medium text-gray-500">Pendientes</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ stats.tramitesPendientes }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-6">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <div class="h-8 w-8 bg-green-500 rounded-md flex items-center justify-center">
+          <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-medium text-gray-500">Finalizados</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ stats.tramitesFinalizados }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-6">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <div class="h-8 w-8 bg-indigo-500 rounded-md flex items-center justify-center">
+          <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-medium text-gray-500">Usuarios Activos</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ stats.usuariosActivos }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Charts and Recent Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <!-- Chart -->
+  <div class="bg-white rounded-lg shadow p-6">
+    <h3 class="text-lg font-medium text-gray-900 mb-4">Trámites por Mes</h3>
+    <div class="space-y-3">
+      <div *ngFor="let item of tramitesPorMes" class="flex items-center">
+        <div class="w-12 text-sm text-gray-500">{{ item.mes }}</div>
+        <div class="flex-1 mx-4">
+          <div class="bg-gray-200 rounded-full h-2">
+            <div class="bg-indigo-600 h-2 rounded-full" [style.width.%]="getProgressWidth(item.cantidad)"></div>
+          </div>
+        </div>
+        <div class="w-12 text-sm text-gray-900 text-right">{{ item.cantidad }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Tramites -->
+  <div class="bg-white rounded-lg shadow p-6">
+    <h3 class="text-lg font-medium text-gray-900 mb-4">Trámites Recientes</h3>
+    <div class="space-y-4">
+      <div *ngFor="let tramite of tramitesRecientes" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+        <div class="flex-1">
+          <p class="text-sm font-medium text-gray-900">{{ tramite.tipo }}</p>
+          <p class="text-xs text-gray-500">{{ tramite.cliente }} - {{ formatDate(tramite.fecha) }}</p>
+        </div>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium" [ngClass]="getEstadoClass(tramite.estado)">
+          {{ tramite.estado }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

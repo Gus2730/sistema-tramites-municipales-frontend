@@ -7,11 +7,12 @@ import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { LoginComponent } from "./components/login/login.component"
 import { DashboardComponent } from "./components/dashboard/dashboard.component"
+import { DashboardHomeComponent } from "./components/dashboard-home/dashboard-home.component"
 import { TramitesListComponent } from "./components/tramites/tramites-list.component"
 import { AuthInterceptor } from "./interceptors/auth.interceptor"
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, TramitesListComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, DashboardHomeComponent, TramitesListComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   providers: [
     {
